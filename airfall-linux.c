@@ -21,10 +21,8 @@ char* get_lan_ip(){
     	for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {
         if (ifa->ifa_addr == NULL) continue;
 
-        // Sadece IPv4 adresleri
         if (ifa->ifa_addr->sa_family == AF_INET) {
 
-            // Sadece WiFi interface'lerini kabul et (wlan0 veya wlp* gibi)
             if (ifa->ifa_name[0] == 'w' && ifa->ifa_name[1] == 'l') {
                 struct sockaddr_in *in = (struct sockaddr_in*)ifa->ifa_addr;
                 inet_ntop(AF_INET, &in->sin_addr, ip, INET_ADDRSTRLEN);
