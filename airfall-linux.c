@@ -4,9 +4,9 @@
 #include <ifaddrs.h>
 #include <net/if.h>
 #include <arpa/inet.h>
-#include <netinet/in.h>i
+#include <netinet/in.h>
 
-void print_my_ip(){
+char* get_my_ip(){
 
 
 
